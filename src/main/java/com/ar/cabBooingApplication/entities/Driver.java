@@ -15,7 +15,8 @@ public class Driver {
     @JoinColumn(name = "user_id")
     private User user; // this user id is forign key for this user and primary key for this rider user
     private Double rating;
+    private String vehicleId;
     private Boolean available;
     @Column(columnDefinition = "Geometry(Point,4326)")
-    Point currentLocation;
+    private Point currentLocation;
 }

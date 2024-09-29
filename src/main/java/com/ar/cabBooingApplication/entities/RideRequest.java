@@ -1,5 +1,6 @@
 package com.ar.cabBooingApplication.entities;
 
+//import com.ar.cabBooingApplication.dto.PointDto;
 import com.ar.cabBooingApplication.entities.enums.PaymentMethod;
 import com.ar.cabBooingApplication.entities.enums.RideRequestStatus;
 import jakarta.persistence.*;
@@ -32,4 +33,6 @@ public class RideRequest {
 
     @Enumerated(EnumType.STRING)
     private RideRequestStatus rideRequestStatus;
+
+    private Double fare;
 }

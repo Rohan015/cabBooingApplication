@@ -2,8 +2,11 @@ package com.ar.cabBooingApplication.entities;
 
 import com.ar.cabBooingApplication.entities.enums.PaymentMethod;
 import com.ar.cabBooingApplication.entities.enums.RideRequestStatus;
+import com.ar.cabBooingApplication.entities.enums.RideStatus;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.locationtech.jts.geom.Point;
@@ -13,6 +16,8 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Ride {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,8 +39,9 @@ public class Ride {
     private PaymentMethod paymentMethod;
 
     @Enumerated(EnumType.STRING)
-    private RideRequestStatus rideRequestStatus;
+    private RideStatus rideStatus;
 
+    private String otp;
     private Double fare;
     private LocalDateTime startedAt;
     private LocalDateTime endedAt;

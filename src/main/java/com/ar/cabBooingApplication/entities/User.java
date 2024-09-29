@@ -1,6 +1,7 @@
 package com.ar.cabBooingApplication.entities;
 
 import com.ar.cabBooingApplication.entities.enums.Role;
+import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -18,6 +19,7 @@ public class User {
     private Long id;
     private String name;
     @Column(unique = true)
+    @Nonnull
     private String email;
     private String password;
     @ElementCollection(fetch = FetchType.LAZY) //it will create another table for the roles only
