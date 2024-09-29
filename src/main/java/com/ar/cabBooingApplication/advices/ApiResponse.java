@@ -1,8 +1,6 @@
 package com.ar.cabBooingApplication.advices;
 
-import lombok.Builder;
 import lombok.Data;
-import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
 @Data

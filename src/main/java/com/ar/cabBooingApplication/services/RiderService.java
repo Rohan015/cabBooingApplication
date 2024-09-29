@@ -6,7 +6,6 @@ import com.ar.cabBooingApplication.dto.RideRequestDto;
 import com.ar.cabBooingApplication.dto.RiderDto;
 import com.ar.cabBooingApplication.entities.Rider;
 import com.ar.cabBooingApplication.entities.User;
-import com.ar.cabBooingApplication.entities.enums.RideRequestStatus;
 
 import java.util.List;
 

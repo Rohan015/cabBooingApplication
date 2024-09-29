@@ -5,7 +5,6 @@ import com.ar.cabBooingApplication.entities.enums.PaymentStatus;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
-import javax.annotation.processing.Generated;
 import java.time.LocalDateTime;
 
 @Entity

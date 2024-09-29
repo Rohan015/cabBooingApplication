@@ -13,7 +13,7 @@ public class Driver {
     private Long id;
     @OneToOne
     @JoinColumn(name = "user_id")
-    private User user; // this user id is forign key for this user and primary key for this rider user
+    private User user; // this user_id is forign key for this Driver and primary key for this rider user
     private Double rating;
     private String vehicleId;
     private Boolean available;

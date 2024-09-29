@@ -1,6 +1,5 @@
 package com.ar.cabBooingApplication.strategies;
 
-import com.ar.cabBooingApplication.dto.RideRequestDto;
 import com.ar.cabBooingApplication.entities.RideRequest;
 
 public interface RideFareCaluclationStrategy {

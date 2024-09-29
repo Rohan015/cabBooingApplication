@@ -1,6 +1,5 @@
 package com.ar.cabBooingApplication.strategies.impl;
 
-import com.ar.cabBooingApplication.dto.RideRequestDto;
 import com.ar.cabBooingApplication.entities.RideRequest;
 import com.ar.cabBooingApplication.services.DistanceService;
 import com.ar.cabBooingApplication.strategies.RideFareCaluclationStrategy;

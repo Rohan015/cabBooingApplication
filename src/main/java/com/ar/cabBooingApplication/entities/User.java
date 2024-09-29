@@ -3,7 +3,6 @@ package com.ar.cabBooingApplication.entities;
 import com.ar.cabBooingApplication.entities.enums.Role;
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

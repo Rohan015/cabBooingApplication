@@ -1,7 +1,6 @@
 package com.ar.cabBooingApplication.dto;
 
 import com.ar.cabBooingApplication.entities.enums.PaymentMethod;
-import com.ar.cabBooingApplication.entities.enums.RideRequestStatus;
 import com.ar.cabBooingApplication.entities.enums.RideStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;

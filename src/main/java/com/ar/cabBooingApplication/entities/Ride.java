@@ -1,7 +1,6 @@
 package com.ar.cabBooingApplication.entities;
 
 import com.ar.cabBooingApplication.entities.enums.PaymentMethod;
-import com.ar.cabBooingApplication.entities.enums.RideRequestStatus;
 import com.ar.cabBooingApplication.entities.enums.RideStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
