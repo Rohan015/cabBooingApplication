@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-@Primary
+//@Primary
 public class DriverMatchingNearestDriverStrategy implements DriverMatchingStrategy {
 
     private final DriverRepository driverRepository;

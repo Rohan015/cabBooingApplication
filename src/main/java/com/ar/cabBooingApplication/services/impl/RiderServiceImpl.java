@@ -14,40 +14,43 @@ import com.ar.cabBooingApplication.repositories.RiderRepository;
 import com.ar.cabBooingApplication.services.RiderService;
 import com.ar.cabBooingApplication.strategies.DriverMatchingStrategy;
 import com.ar.cabBooingApplication.strategies.RideFareCaluclationStrategy;
+import com.ar.cabBooingApplication.strategies.RideStrategyManager;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class RiderServiceImpl implements RiderService {
 
     private final ModelMapper mapper;
-    private final RideFareCaluclationStrategy rideFareCaluclationStrategy;
-    private final DriverMatchingStrategy driverMatchingStrategy;
+    private final RideStrategyManager rideStrategyManager;
+//    private final RideFareCaluclationStrategy rideFareCaluclationStrategy;
+//    private final DriverMatchingStrategy driverMatchingStrategy;
     private final RideRequestRepository rideRequestRepository;
     private final RiderRepository riderRepository;
 
     @Override
     public RideRequestDto requestRide(RideRequestDto rideRequestDto) {
         Rider rider = getCurrentRider();
-        RideRequest rideRequest= mapper.map(rideRequestDto,RideRequest.class);
+        RideRequest rideRequest = mapper.map(rideRequestDto, RideRequest.class);
         rideRequest.setRideRequestStatus(RideRequestStatus.PENDING);
         rideRequest.setRider(rider);
 
-        Double fare = rideFareCaluclationStrategy.caluclateFare(rideRequest);
+        Double fare = rideStrategyManager.rideFareCaluclationStrategy().caluclateFare(rideRequest);
         rideRequest.setFare(fare);
 
         RideRequest saveRideRequest = rideRequestRepository.save(rideRequest);
 
 //        log.info(rideRequest.toString());
-        driverMatchingStrategy.findMatchDriver(rideRequest);
+        rideStrategyManager.driverMatchingStrategy(rider.getRating()).findMatchDriver(rideRequest);
 
 
-        return mapper.map(saveRideRequest,RideRequestDto.class);
+        return mapper.map(saveRideRequest, RideRequestDto.class);
     }
 
     @Override
@@ -79,8 +82,7 @@ public class RiderServiceImpl implements RiderService {
     @Override
     public Rider getCurrentRider() {
         //TODO implement spring security
-        return riderRepository.findById(1L).orElseThrow(()-> new ResourceNotFoundException(
-                "Rider not found with id:" +1));
+        return riderRepository.findById(1L).orElseThrow(() -> new ResourceNotFoundException(
+                "Rider not found with id:" + 1));
     }
-
 }

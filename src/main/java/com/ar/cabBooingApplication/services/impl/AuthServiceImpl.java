@@ -32,20 +32,19 @@ public class AuthServiceImpl implements AuthService {
     @Override
     @Transactional
     public UserDto signup(SignupDto signupDto) {
-        User user =userRepository.findByEmail(signupDto.getEmail()).orElse(null);
-        if (user!=null){
-           throw  new RuntimeConflictException(
+        User user = userRepository.findByEmail(signupDto.getEmail()).orElse(null);
+        if (user != null) {
+            throw new RuntimeConflictException(
                     "cannot signup, User already exists with email "
                             + signupDto.getEmail());
         }
-
 
         User mappedUser = mapper.map(signupDto, User.class);
         mappedUser.setRoles(Set.of(Role.RIDER));
         User saveUser = userRepository.save(mappedUser);
         riderService.createNewRider(saveUser);
 //TODO add wallet related service here
-        return mapper.map(saveUser,UserDto.class);
+        return mapper.map(saveUser, UserDto.class);
     }
 
     @Override
